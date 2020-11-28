@@ -6,7 +6,6 @@ import time
 class guess(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
-		self.try_after = ''
 		self.zero = '\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}'
 		self.one = '\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}'
 		self.two = '\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}'
