@@ -24,6 +24,7 @@ class remove_bad_word(commands.Cog):
 		cm_words = r'(\w|\s)*(\W|_)*(c+(\W|_)*(u|\*)+(\W|_)*m+(\W|_)*(e*d*i*n*g*(\$|&|s)*)?(\W|_)*(\w|\s)*)'
 		as_words = r'(\w|\s)*(\W|_)*((@|a)+(\W|_)*(\$|s|&|\*)+(\W|_)*(\$|s|&|\*)+(\W|_)*(\w|\s)*)'
 		an_words = r'(\w|\s)*(\W|_)*((@|a)+(\W|_)*(n|\*)+(\W|_)*(@|a|\*)+(\W|_)*l+(\W|_)*(\w|\s)*)'
+		bt_words = r'(\w|\s)*(\W|_)*(b+(\W|_)*(i|\*)+(\W|_)*(t|\*)+(\W|_)*(c|\*)+(\W|_)*(h|#)+(\W|_)*(\w|\s)*)'
 		words = [f_words, s_words, c_words, p_words,
 				d_words, a_words, b_words, t_words,
 				pn_words, sl_words, bb_words, bh_words,
