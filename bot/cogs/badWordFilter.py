@@ -28,7 +28,7 @@ class remove_bad_word(commands.Cog):
 		words = [f_words, s_words, c_words, p_words,
 				d_words, a_words, b_words, t_words,
 				pn_words, sl_words, bb_words, bh_words,
-				cm_words, as_words, an_words]
+				cm_words, as_words, an_words, bt_words]
 		for word in words:
 			find_ = list(re.findall(word, sentence))
 			match_ = re.match(word, sentence)
