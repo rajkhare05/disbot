@@ -3,7 +3,7 @@ import discord
 import random
 import time
 
-class guess(commands.Cog):
+class games(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 		self.zero = '\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}'
@@ -27,6 +27,9 @@ class guess(commands.Cog):
 	@commands.command(name = 'guess', aliases = ['guessgame', 'gg', 'guessnum', 'guessnumber'])
 	@commands.cooldown(rate = 2, per = 15.0, type = commands.BucketType.member)
 	async def guess_game(self, ctx):
+		'''
+		Number guessing game
+		'''
 		num = self.num_guess_game()
 		print('num : ',num)
 		await ctx.send('Enter a number, between 1 - 10')
@@ -47,6 +50,9 @@ class guess(commands.Cog):
 	@commands.command(name = 'rolldice', aliases = ['roll', 'rtd', 'rd', 'rollthedice'])
 	@commands.cooldown(rate = 2, per = 15.0, type = commands.BucketType.member)
 	async def roll_dice(self, ctx):
+		'''
+		Rolls a die
+		'''
 		num = self.num_on_dice()
 		embed_ = discord.Embed(
 			title = '{usr_}'.format(usr_ = str(ctx.author)),
@@ -62,6 +68,9 @@ class guess(commands.Cog):
 	@commands.command(name = 'toss', aliases = ['tossacoin', 'flipacoin'])
 	@commands.cooldown(rate = 2, per = 15.0, type = commands.BucketType.member)
 	async def tossed_coin(self, ctx):
+		'''
+		Toss a coin
+		'''
 		result = random.choice([1, 2])
 		face = 'head' if result == 1 else 'tail'
 		embed_ = discord.Embed(
@@ -83,4 +92,4 @@ class guess(commands.Cog):
 			)
 
 def setup(bot):
-	bot.add_cog(guess(bot))
+	bot.add_cog(games(bot))
