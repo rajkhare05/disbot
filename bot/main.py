@@ -32,7 +32,8 @@ async def on_command_error(ctx, error):
 
 extensions = [
 	'cogs.managecogs',
-	'cogs.games'
+	'cogs.games',
+	'cogs.badWordFilter'
 ]
 
 if __name__ == '__main__':
