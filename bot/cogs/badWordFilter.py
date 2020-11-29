@@ -25,10 +25,12 @@ class remove_bad_word(commands.Cog):
 		as_words = r'(\w|\s)*(\W|_)*((@|a)+(\W|_)*(\$|s|&|\*)+(\W|_)*(\$|s|&|\*)+(\W|_)*(\w|\s)*)'
 		an_words = r'(\w|\s)*(\W|_)*((@|a)+(\W|_)*(n|\*)+(\W|_)*(@|a|\*)+(\W|_)*l+(\W|_)*(\w|\s)*)'
 		bt_words = r'(\w|\s)*(\W|_)*(b+(\W|_)*(i|\*)+(\W|_)*(t|\*)+(\W|_)*(c|\*)+(\W|_)*(h|#)+(\W|_)*(\w|\s)*)'
+		cn_words = r'(\w|\s)*(\W|_)*(c+(\W|_)*(u|\*)+(\W|_)*(n|\*)+(\W|_)*t+(\W|_)*(\w|\s)*)'
 		words = [f_words, s_words, c_words, p_words,
-				d_words, a_words, b_words, t_words,
-				pn_words, sl_words, bb_words, bh_words,
-				cm_words, as_words, an_words, bt_words]
+			d_words, a_words, b_words, t_words,
+			pn_words, sl_words, bb_words, bh_words,
+			cm_words, as_words, an_words, bt_words,
+			cn_words]
 		for word in words:
 			find_ = list(re.findall(word, sentence))
 			match_ = re.match(word, sentence)
@@ -47,7 +49,7 @@ class remove_bad_word(commands.Cog):
 			member_ = message.guild.get_member(message.author.id)
 			await message.channel.set_permissions(member_, read_messages = True, send_messages = False)
 			await member_.create_dm()
-			await member_.send('Watch your words {user_}, you can't message for 20 seconds !'.format(user_ = member_.mention))
+			await member_.send('Watch your words {user_}, you can\'t message for 20 seconds !'.format(user_ = member_.mention))
 			await asyncio.sleep(20)
 			await message.channel.set_permissions(member_, overwrite = None)
 
