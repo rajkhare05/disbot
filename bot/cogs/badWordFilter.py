@@ -34,7 +34,8 @@ class remove_bad_word(commands.Cog):
 		for word in words:
 			find_ = list(re.findall(word, sentence))
 			match_ = re.match(word, sentence)
-			if find_ != [] and (match_ or find_[0][2] != ''):
+# 			if find_ != [] and (match_ or find_[0][2] != ''):
+			if match_:
 				result = True
 				break
 		return result
