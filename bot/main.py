@@ -34,7 +34,8 @@ extensions = [
 	'cogs.managecogs',
 	'cogs.games',
 	'cogs.badWordFilter',
-	'cogs.mod-mail'
+	'cogs.mod-mail',
+	'cogs.listOfEverything'
 ]
 
 if __name__ == '__main__':
