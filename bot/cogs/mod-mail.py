@@ -1,9 +1,13 @@
 from discord.ext import commands
 import discord
 
-class dm_channel_(commands.Cog):
+class send_modmail_(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
+	
+	'''
+	For sending mod-mail, user should have a MOD role
+	'''
 
 	@commands.command(name = 'modmail')
 	@commands.has_role('MOD')
@@ -11,25 +15,23 @@ class dm_channel_(commands.Cog):
 		'''
 		Sends a modmail
 		'''
-		if str(ctx.channel.name) == 'mod-mail':
-			member_id = int(member_.strip('<@!>'))
-			member_ = ctx.guild.get_member(member_id)
-			if dm is None:
-				dm = 'msg'
-			await member_.create_dm()
-			await member_.send(content = dm)
-			reply = discord.Embed(
-				description = '{m_u}, mod-mail sent !'.format(m_u = str(ctx.author)),
-				colour = discord.Colour.teal()
-			)
-			return await ctx.send(embed = reply)
-		await ctx.message.delete(delay = 4.0)
-		msg = await ctx.send(embed = discord.Embed(
-			description = '{usr_}, send in mod-mail channel !'.format(usr_ = str(ctx.author)),
+		member_id = int(member_.strip('<@!>'))
+		member_ = ctx.guild.get_member(member_id)
+		if dm is None:
+			dm = 'msg'
+		await member_.create_dm()
+		await member_.send(content = dm)
+		reply = discord.Embed(
+			description = '{m_u}, mod-mail sent !'.format(m_u = str(ctx.author)),
 			colour = discord.Colour.teal()
-			)
 		)
-		return await msg.delete(delay = 5.0)
+		return await ctx.send(embed = reply)
+	await ctx.message.delete(delay = 4.0)
+	msg = await ctx.send(embed = discord.Embed(
+		description = '{usr_}, send in mod-mail channel !'.format(usr_ = str(ctx.author)),
+		colour = discord.Colour.teal()
+		)
+	)
 
 	@commands.Cog.listener()
 	async def on_command_error(self, ctx, error):
@@ -43,4 +45,4 @@ class dm_channel_(commands.Cog):
 				))
 
 def setup(bot):
-	bot.add_cog(dm_channel_(bot))
+	bot.add_cog(send_modmail_(bot))
